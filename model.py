@@ -33,3 +33,9 @@ def conv3d(x, nf, ks, name, weight_decay):
 
     return x
 
+
+def pooling(x, ks, name):
+
+    x = MaxPooling3D((ks, ks, ks), name=name)(x)
+
+    return x
