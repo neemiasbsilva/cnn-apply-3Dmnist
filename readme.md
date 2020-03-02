@@ -1,1 +1,1 @@
-# A Convolutional Neural Network 
+# A Convolutional Neural Network Approach applied to 3D-mnist Dataset
