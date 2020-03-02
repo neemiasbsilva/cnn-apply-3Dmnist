@@ -1,7 +1,7 @@
 import keras
 from keras import layers
 from keras.model import Sequential, Model
-from keras.layers import Dense, Flatten, Conv3D
+from keras.layers import Dense, Flatten, Conv3D, MaxPooling3D
 from keras.regularizers import l2
 import numpy as np
 
@@ -32,3 +32,5 @@ def conv3d(x, nf, ks, name, weight_decay):
                 bias_initializer=constant(0.0))
 
     return x
+
+
