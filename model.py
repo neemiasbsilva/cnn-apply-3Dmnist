@@ -18,3 +18,17 @@ def fully_connected(x, nf, name, weight_decay):
                 bias_initializer=constant(0.0))(x)
 
     return x
+
+
+def conv3d(x, nf, ks, name, weight_decay):
+
+    kernel = l2(weight_decay[0]) if weight_decay else None
+    bias_reg = l2(weight_decay[1]) if weight_decay else None
+
+    x = Conv3D(nf, ks, padding='same', name=name,
+                kernel_regularizer=kernel_reg,
+                bias_regularizer=bias_reg,
+                kernel_initializer=random_norlma(stddev=0.01),
+                bias_initializer=constant(0.0))
+
+    return x
