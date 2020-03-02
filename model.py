@@ -2,6 +2,7 @@ import keras
 from keras import layers
 from keras.model import Sequential, Model
 from keras.layers import Dense, Flatten, Conv3D, MaxPooling3D
+from keras.layers import Activation, Input
 from keras.regularizers import l2
 import numpy as np
 
@@ -33,6 +34,7 @@ def conv3d(x, nf, ks, name, weight_decay):
 
     return x
 
+def relu(x): return Activation('relu')(x)
 
 def pooling(x, ks, name):
 
