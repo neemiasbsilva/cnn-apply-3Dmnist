@@ -43,6 +43,8 @@ def pooling(x, ks, name):
 
     return x
 
+def softmax(x):
+    return Activation('softmax')(x)
 
 def get_train_model(sample_shape, dimension=3, layer_name='block1_conv3d', weight_decay=5e-4):
 
@@ -74,4 +76,4 @@ def get_train_model(sample_shape, dimension=3, layer_name='block1_conv3d', weigh
 
     model = fully_connected(model, 10)
 
-    
+    model = softmax(model)
