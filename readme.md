@@ -1,1 +1,1 @@
-# A Three Dimensional CNN Approach applied to 3D-mnist Dataset
+# A Simple Three Dimensional CNN Approach
