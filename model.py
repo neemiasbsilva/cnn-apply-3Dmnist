@@ -78,4 +78,6 @@ def get_train_model(sample_shape, dimension=3, layer_name='block1_conv3d', weigh
 
     model = softmax(model)
 
+    model = Model(img_input, model)
+
     return model
