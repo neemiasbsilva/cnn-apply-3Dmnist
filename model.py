@@ -77,3 +77,5 @@ def get_train_model(sample_shape, dimension=3, layer_name='block1_conv3d', weigh
     model = fully_connected(model, 10)
 
     model = softmax(model)
+
+    return model
