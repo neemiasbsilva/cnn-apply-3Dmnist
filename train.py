@@ -22,3 +22,8 @@ lr = arguments.learning_rate
 val_split = arguments.validation_split
 verbosity = arguments.verbosity
 path_data = arguments.path_data
+
+
+x_train, y_train, x_test, y_test = get_dataset(path_data)
+
+model = get_training_model(sample_shape=(16, 16, 16, 3))
