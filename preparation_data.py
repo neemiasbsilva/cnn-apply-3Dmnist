@@ -11,7 +11,7 @@ def rgb_data_transform(data):
     return np.asarray(data_t, dtype=np.float32)
 
 def get_dataset(path):
-    with h5py.File("path", 'r') as hf:
+    with h5py.File(path, 'r') as hf:
         
         # Split the data into training/test featrues/targets
 
