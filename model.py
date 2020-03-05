@@ -56,7 +56,8 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
 
     model = Sequential()
 
-    model.add(Conv3D(32, (3, 3, 3), activation='relu', kernel_initalizer='he_uniform', input_shape=sample_shape))
+    model.add(Conv3D(32, (3, 3, 3), activation='relu',
+                     kernel_initializer='he_uniform', input_shape=sample_shape))
 
     model = pooling(model, 2, 'MaxPooling3D_layer2')
 
