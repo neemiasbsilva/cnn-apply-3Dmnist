@@ -21,7 +21,7 @@ def get_dataset(path):
         y_test = hf["y_test"][:]
 
         # Determine sample shape
-        sample_shape(16, 16, 16, 3)
+        sample_shape = (16, 16, 16, 3)
 
         # Reshape data into 3D format
         x_train = rgb_data_transform(x_train)
