@@ -1,6 +1,6 @@
 import keras
 from keras import layers
-from keras.model import Sequential, Model
+from keras.models import Sequential, Model
 from keras.layers import Dense, Flatten, Conv3D, MaxPooling3D
 from keras.layers import Activation, Input
 from keras.regularizers import l2
