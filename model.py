@@ -37,9 +37,9 @@ def conv3d(x, nf, ks, name, weight_decay):
 
 def relu(x): return Activation('relu')(x)
 
-def pooling(x, ks, name):
+def pooling(x, ks):
 
-    x = MaxPooling3D((ks, ks, ks), name=name)(x)
+    x = MaxPooling3D(pool_size=(ks, ks, ks))(x)
 
     return x
 
@@ -59,13 +59,13 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
     x = Conv3D(32, (3, 3, 3), activation='relu',
                      kernel_initializer='he_uniform', input_shape=sample_shape)(img_input)
 
-    pooling(x, 2, 'MaxPooling3D_layer2')
+    pooling(x, 2)
 
     conv3d(x, 64, 3, 'Conv3d_layer3', weight_decay)
 
     relu(x)
 
-    pooling(x, 2, 'MaxPooling3D_layer3')
+    pooling(x, 2)
 
     x = Flatten()(x)
 
@@ -73,7 +73,7 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
 
     relu(x)
 
-    pooling(x, 2, 'MaxPooling3D_layer5')
+    pooling(x, 2)
 
     fully_connected(x, 10)
 
