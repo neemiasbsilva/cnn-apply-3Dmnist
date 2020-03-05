@@ -54,31 +54,32 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
 
     inputs.append(img_input)
 
-    model = Sequential()
+    # model = Sequential()
 
-    model.add(Conv3D(32, (3, 3, 3), activation='relu',
-                     kernel_initializer='he_uniform', input_shape=sample_shape))
+    x = Conv3D(32, (3, 3, 3), activation='relu',
+                     kernel_initializer='he_uniform', input_shape=sample_shape)(img_input)
 
-    model = pooling(model, 2, 'MaxPooling3D_layer2')
+    pooling(x, 2, 'MaxPooling3D_layer2')
 
-    model = conv3d(model, 64, 3, 'Conv3d_layer3', weight_decay)
+    conv3d(x, 64, 3, 'Conv3d_layer3', weight_decay)
 
-    model = relu(model)
+    relu(x)
 
-    model = pooling(model, 2, 'MaxPooling3D_layer3')
+    pooling(x, 2, 'MaxPooling3D_layer3')
 
-    model.add(Flatten())
+    x = Flatten()(x)
 
-    model = fully_connected(model, 256, 'Dense_layer4', weight_decay)
+    fully_connected(x, 256, 'Dense_layer4', weight_decay)
 
-    model = relu(model)
+    relu(x)
 
-    model = pooling(model, 2, 'MaxPooling3D_layer5')
+    pooling(x, 2, 'MaxPooling3D_layer5')
 
-    model = fully_connected(model, 10)
+    fully_connected(x, 10)
 
-    model = softmax(model)
+    softmax(x)
 
-    model = Model(img_input, model)
+    model = Model(img_input, x)
 
+    
     return model
