@@ -15,8 +15,7 @@ def rgb_data_transform(data):
     data_t = []
 
     for i in range(data.shape[0]):
-        data_t.append(array_to_color(data[i])).reshape(16, 16, 16, 3)
-    
+        data_t.append(array_to_color(data[i]).reshape(16, 16, 16, 3))
     return np.asarray(data_t, dtype=np.float32)
 
 
