@@ -12,7 +12,7 @@ parser.add_argument("-learning_rate", action="store", default=0.001, required=Fa
 parser.add_argument('-momentum', action="store", default=0.9, required=False, help="Momentum term", type=float)
 parser.add_argument("-validation_split", action="store", default=0.2, required=False, help="Validation Split", type=float)
 parser.add_argument("-verbosity", action="store", default=1, required=False, help="Verbosity", type=float)
-parser.add_argument("-path_data", action="store", required=True, help="The dataset of the 3Dmnist path", dest='train_path')
+parser.add_argument("-path_data", action="store", required=True, help="The dataset of the 3Dmnist path", dest='path_data')
 parser.add_argument("-experiment_name", action="store", required=True, help="Folder to save the experiment", dest="experiment_name" )
 
 arguments = parser.parse_args()
