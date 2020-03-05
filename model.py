@@ -54,31 +54,44 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
 
     inputs.append(img_input)
 
-    # model = Sequential()  
-    x = Conv3D(32, (3, 3, 3), activation='relu',
-                     kernel_initializer='he_uniform', padding='same')(img_input)
+    model = Sequential()
+    model.add(Conv3D(32, (3, 3, 3), activation='relu', kernel_initializer='he_uniform',
+            padding='same', input_shape=sample_shape))
 
-    pooling(x, 2)
+    model.add(MaxPooling3D(poll_size=(2, 2, 2)))
+    
+    model.add(Conv3D(64, (3, 3, 3), activation='relu'))
 
-    conv3d(x, 64, 3, 'Conv3d_layer3', weight_decay)
+    model.add(MaxPooling3D(poll_size=(2, 2, 2)))
 
-    relu(x)
+    model.add(Flatten())
+    # x = Conv3D(32, (3, 3, 3), activation='relu',
+    #                  kernel_initializer='he_uniform', padding='same')(img_input)
 
-    pooling(x, 2)
+    # pooling(x, 2)
 
-    x = Flatten()(x)
+    # conv3d(x, 64, 3, 'Conv3d_layer3', weight_decay)
 
-    fully_connected(x, 256, 'Dense_layer4', weight_decay)
+    # relu(x)
 
-    relu(x)
+    # pooling(x, 2)
 
-    pooling(x, 2)
+    # x = Flatten()(x)
 
-    fully_connected(x, 10)
+    # fully_connected(x, 256, 'Dense_layer4', weight_decay)
 
-    softmax(x)
+    # relu(x)
 
-    model = Model(img_input, x)
+    # pooling(x, 2)
+
+    # fully_connected(x, 10)
+
+    # softmax(x)
+
+    # model = Model(img_input, x)
+    model.add(Dense(256, activation='relu', kernel_initializer='he_uniform'))
+
+    model.add(Dense(10, activation='softmax'))
 
 
     return model
