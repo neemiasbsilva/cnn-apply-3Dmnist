@@ -1,6 +1,15 @@
 import h5py
 import numpy as np
 from keras.utils import to_categorical
+import matplotlib.pyplot as plt 
+
+
+def array_to_color(arr, cmap="Oranges"):
+    
+    s_m = plt.cm.ScalarMappable(cmap=cmap)
+    
+    return s_m.to_rgba(array)[:,:-1]
+
 
 def rgb_data_transform(data):
     data_t = []
@@ -9,6 +18,7 @@ def rgb_data_transform(data):
         data_t.append(array_to_color(data[i])).reshape(16, 16, 16, 3)
     
     return np.asarray(data_t, dtype=np.float32)
+
 
 def get_dataset(path):
     with h5py.File(path, 'r') as hf:
