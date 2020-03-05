@@ -55,9 +55,8 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
     inputs.append(img_input)
 
     # model = Sequential()
-
     x = Conv3D(32, (3, 3, 3), activation='relu',
-                     kernel_initializer='he_uniform', input_shape=sample_shape)(img_input)
+                     kernel_initializer='he_uniform', padding='same')(img_input)
 
     pooling(x, 2)
 
