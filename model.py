@@ -46,7 +46,7 @@ def pooling(x, ks, name):
 def softmax(x):
     return Activation('softmax')(x)
 
-def get_train_model(sample_shape, dimension=3, layer_name='block1_conv3d', weight_decay=5e-4):
+def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', weight_decay=5e-4):
 
     inputs = []
 
