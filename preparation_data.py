@@ -8,7 +8,7 @@ def array_to_color(arr, cmap="Oranges"):
     
     s_m = plt.cm.ScalarMappable(cmap=cmap)
     
-    return s_m.to_rgba(array)[:,:-1]
+    return s_m.to_rgba(arr)[:,:-1]
 
 
 def rgb_data_transform(data):
