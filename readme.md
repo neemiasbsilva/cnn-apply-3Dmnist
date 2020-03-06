@@ -1,6 +1,8 @@
 # A Simple Three Dimensional CNN Approach
 
-<p style="font-size: 20px;"><b>Note</b>: This repository is not complete yet.
+<p style="font-size: 20px;">This repository was create to show some techniques of Deep Learning using Conv3D for apply the 3dmnist. The result of the training can be viewed just below:
+
+<img style="display: block; margin-left: auto; margin-right:auto; width: 80%;" src="result.png">
 
 #
 
