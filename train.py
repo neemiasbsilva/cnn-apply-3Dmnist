@@ -52,10 +52,11 @@ plt.plot(history.history['loss'],
          label='Categorical crossentropy (training data)')
 plt.plot(history.history['val_loss'],
          label='Categorical crossentropy (validation data)')
-plt.plot(history.history['accuracy'], label='Accuracy (training data)')
-plt.plot(history.history['val_accuracy'], label='Accuracy (validation data)')
+# plt.plot(history.history['accuracy'], label='Accuracy (training data)')
+# plt.plot(history.history['val_accuracy'], label='Accuracy (validation data)')
 plt.title('Model performance for 3D MNIST Keras Conv3D example')
 plt.ylabel('Loss value')
 plt.xlabel('No. epoch')
 plt.legend(loc="upper left")
 plt.show()
+plt.savefig(os.path.join(experiment_name, 'result.png'))
