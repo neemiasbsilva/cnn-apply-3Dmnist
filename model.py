@@ -64,9 +64,9 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
     
     model.add(MaxPooling3D(pool_size=(2, 2, 2)))
 
-    model.add(Conv3D(128, (3, 3, 3), activation='relu'))
+    # model.add(Conv3D(128, (3, 3, 3), activation='relu'))
 
-    model.add(MaxPooling3D(pool_size=(2, 2, 2)))
+    # model.add(MaxPooling3D(pool_size=(2, 2, 2)))
 
     model.add(Flatten())
     # x = Conv3D(32, (3, 3, 3), activation='relu',
@@ -97,7 +97,7 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
 
     model.add(Dropout(0.2))
 
-    model.add(Dense(128, activation='relu', kenel_initializer='he_uniform'))
+    model.add(Dense(128, activation='relu', kernel_initializer='he_uniform'))
 
     model.add(Dense(10, activation='softmax'))
 
