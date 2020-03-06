@@ -4,6 +4,11 @@
 
 <img style="display: block; margin-left: auto; margin-right:auto; width: 80%;" src="result.png">
 
+
+Adding dropout, see below:
+
+<img style="display: block; margin-left: auto; margin-right:auto; width: 80%;" src="result-regularization.png">
+
 <p style="font-size: 20px;"><b>Note</b>: This is one example not the <b>state-of-the-art</b>, so if you interest in this topic, you can be cloned and update the model.</p>
 
 
