@@ -64,7 +64,7 @@ def get_training_model(sample_shape, dimension=3, layer_name='block1_conv3d', we
     
     model.add(MaxPooling3D(pool_size=(2, 2, 2)))
 
-    model.add(Conv3D(256, (3, 3, 3), activation='relu'))
+    model.add(Conv3D(128, (3, 3, 3), activation='relu'))
 
     model.add(MaxPooling3D(pool_size=(2, 2, 2)))
 
