@@ -3,6 +3,7 @@ from preparation_data import get_dataset
 from keras.optimizers import SGD
 import argparse
 import os
+import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description='Training Three Dimension CNN')
 
@@ -41,3 +42,20 @@ history = model.fit(x_train, y_train,
             validation_split=val_split)
 
 model.save(os.path.join(experiment_name, "model.h5"))
+
+score = model.evaluate(x_test, y_test, verbose=1)
+
+print(f'Test loss: {score[0]} / Test accuracy: {score[1]}')
+
+# Plot history: Categorical crossentropy & Accuracy
+plt.plot(history.history['loss'],
+         label='Categorical crossentropy (training data)')
+plt.plot(history.history['val_loss'],
+         label='Categorical crossentropy (validation data)')
+plt.plot(history.history['accuracy'], label='Accuracy (training data)')
+plt.plot(history.history['val_accuracy'], label='Accuracy (validation data)')
+plt.title('Model performance for 3D MNIST Keras Conv3D example')
+plt.ylabel('Loss value')
+plt.xlabel('No. epoch')
+plt.legend(loc="upper left")
+plt.show()
